@@ -1,0 +1,45 @@
+<li id="micropost-<%= micropost.id %>">
+  <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+
+  <%= require 'uri'
+
+
+tmp = URI.extract("asdasdasd", /http(s)/)
+url = URI.extract(micropost.content, /http(s)/)
+puts 
+%>
+
+<span><%= simple_format(micropost.content.chomp(url.first)) %></span>
+<span><%=if (url != tmp) 
+		link_to url.first, url.first 
+		end%>
+	<%= image_tag micropost.picture.url if micropost.picture? %>
+	</span>
+  <br /><br /><br /><br />
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+    <br />
+    <div class="micropost_f">
+    <strong id="like_count">
+    <% if micropost.flaggings.size == 0 %>
+    <%= 0 %>
+    <% else %>
+    <%= micropost.flaggings_count %>
+    <% end %>
+    <%=  "people like this" %>
+    </strong>
+
+    
+
+    <br />
+    
+    <%= render 'microposts/like_form', :micropost => micropost %>
+    </div>
+    <% if current_user?(micropost.user) %>
+      <%= link_to "delete", micropost, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+
+  </span>
+</li>

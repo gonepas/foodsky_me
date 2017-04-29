@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  follower: xuantho
+  followed: maiden
+
+two:
+  follower: xuantho
+  followed: lina
+
+three:
+  follower: lina
+  followed: xuantho
+
+four:
+  follower: butcher
+  followed: xuantho
