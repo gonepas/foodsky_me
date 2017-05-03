@@ -14,7 +14,7 @@ gem 'bcrypt',         '3.1.11'
 
 #use faker gem to create example users for simple app
 
-gem 'faker',  '1.4.2'
+gem 'faker',  '1.7.3'
 gem 'bootstrap-sass', '3.2.0.2'
 
 #image upload

@@ -93,7 +93,7 @@ user.microposts.create!(content: "Go away Pudge!")
     file.puts user.name + "\n" + user.email + "\n" + user.password + "\n\n\n"
 
 50.times do |n|
-  name  = Faker::Name.name
+  name  = Faker::HarryPotter.character
   email = "member_number-#{n+1}@gmail.com"
   password = ["passwordhere", name.split(" ").sample + "123", "mypassword", "theamazingspiderman", "bigblack", "sadboy_of_universe"].sample + rand(12345).to_s
   user = User.create!(name:  name,
@@ -103,7 +103,7 @@ user.microposts.create!(content: "Go away Pudge!")
                activated: true,
                activated_at: Time.zone.now)
   50.times do
-  content = Faker::Lorem.sentence(5)
+  content = Faker::HarryPotter.quote
   user.microposts.create!(content: content)
   end
 

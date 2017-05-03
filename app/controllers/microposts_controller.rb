@@ -4,6 +4,7 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
+    @micropost.flaggings_count = 0
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to root_url
@@ -18,7 +19,7 @@ class MicropostsController < ApplicationController
     current_user.flag(@micropost_t)
      respond_to do |format|
       format.html { redirect_to (:back) }
-      format.js {render inline: "location.reload();" }
+      format.js {render inline: "location.reload();"}
     end
   end
 
@@ -27,7 +28,7 @@ class MicropostsController < ApplicationController
     current_user.unflag(@micropost)
     respond_to do |format|
       format.html { redirect_to (:back) }
-      format.js {render inline: "location.reload();" }
+      format.js { render inline: "location.reload(); "}
     end
   end
 

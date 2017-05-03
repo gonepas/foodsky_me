@@ -22,7 +22,7 @@ puts
     <br />
     <div class="micropost_f">
     <strong id="like_count">
-    <% if micropost.flaggings.count == 0 %>
+    <% if (micropost.flaggings_count == nil) %>
     <%= 0 %>
     <% else %>
     <%= micropost.flaggings_count %>
